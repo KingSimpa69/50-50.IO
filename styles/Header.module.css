@@ -1,0 +1,75 @@
+.headerWrap {
+    height:80px;
+    background: linear-gradient(
+        to top,
+        transparent,
+        rgba(0, 0, 0, 0.76)
+      )
+      rgba(0, 0, 0, 0);
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: none
+}
+
+.logoText:hover {
+    cursor: pointer;
+    opacity: 1;
+}
+
+.logoText {
+    opacity: .8;
+    letter-spacing: 15px;
+    margin-top: -40px;
+    margin-right: -200px;
+    text-align: center;
+    width:100%;
+    color: #03A062;
+    font-size: 16px;
+    font-family: 'Courier New', monospace;
+}
+
+.web3Button {
+    color: #ffffff;
+    opacity: .9;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    width:200px;
+    background-color: #0e0e0e;
+    border: #272727c7 1px solid;
+    box-shadow: 0 0 80px 80px rgba(127, 255, 212, 0.041);
+    height:50px;
+    align-self: flex-start;
+    letter-spacing: 2px;
+    font-family: avenH;
+    text-transform: uppercase;
+    font-size: 18px;
+    border-radius: 5px;
+    z-index: +2;
+}
+
+.web3Button:hover {
+    cursor:pointer;
+    opacity: 1;
+}
+
+.web3Button img {
+    margin-right: 10px;
+}
+
+@media only screen and (max-width: 600px) {
+    .web3Button {
+        width:150px;
+        height: 40px;
+        font-size: 16px;
+    }
+    .logoText {
+        letter-spacing: 10px;
+        font-size: 16px;
+        margin-top: -30px;
+        margin-left: 15px;
+        text-align: center;
+        width:auto;
+    }
+}

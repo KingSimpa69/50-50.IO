@@ -1,0 +1,159 @@
+.h1 {
+    margin-top: -50px;
+    z-index: +1;
+    font-family: bungee;
+    color:rgba(127, 255, 212, 0.705);
+    font-size: 50px;
+}
+
+.container {
+    margin-top: 30px;
+    background-color: #0e0e0e;
+    border: #272727c7 1px solid;
+    width: 690px;
+    max-width: 95vw;
+    padding-top: 10px;
+    margin-bottom: 30px;
+    overflow-y: scroll;
+    box-shadow: 0 0 80px 80px rgba(127, 255, 212, 0.041);
+}
+
+.container::-webkit-scrollbar {
+    width: 0px;
+    background: transparent; /* make scrollbar transparent */
+}
+
+.create {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    position: relative;
+    border: 0px solid #ffffff;
+    margin-left: 30px;
+    margin-right: 30px;
+    overflow: scroll;
+}
+
+.createInput input{
+    width: 100%;
+    text-align: left;
+    padding-top: 10px;
+    padding-left: 3px; 
+    box-sizing: border-box;
+    background: #00000000;
+    border-bottom: 1px solid #bdbdbd83;
+    border-left:none;
+    border-top:none;
+    border-right:none;
+    height:40px;
+    font-family: avenL;
+    letter-spacing: 2px;
+    color:aquamarine;
+    font-size: 14px;
+}
+
+.createInput input::placeholder{
+    color: #ffffff4d;
+}
+
+.createInput input:focus{
+    border-bottom: 1px solid aquamarine;
+}
+
+.inputLabel {
+    text-align: left;
+    margin-top: 2px;
+    margin-left: 2px;
+    margin-bottom: 4px;
+    color:#ffffffda;
+    font-family: inter;
+    font-size: 10px;
+}
+
+.inputBackdrop {
+    margin-top: 10px;
+    background: linear-gradient(
+        to bottom,
+        transparent,
+        rgba(0, 0, 0, 0.356)
+      )
+      rgba(0, 0, 0, 0);
+}
+
+.bigButton {
+    opacity: 0.9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: linear-gradient(
+        to top,
+        transparent,
+        rgb(65, 253, 191)
+      )
+      rgb(41, 78, 66);
+    height:50px;
+    border-radius: 3px;
+    text-transform: uppercase;
+    font-size: 20px;
+    letter-spacing: 3px;
+    font-family: avenH;
+    margin-bottom: 20px;
+}
+
+.bigButton:hover {
+    opacity: 1;
+    cursor: pointer;
+}
+
+.gameInfo {
+    display: inline;
+    font-family: inter;
+    color:#ffffff;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width:100%;
+    text-align: center;
+    font-size: 12px;
+}
+
+.gInfoValue {
+    display:flex;
+    flex-direction: column;
+    margin: 10px 20px;
+    color: rgb(3, 199, 134);
+}
+
+.ginfoLabel {
+    font-size: 10px;
+    color:#858585;
+}
+
+.inputLabelError {
+    font-size: 10px;
+    font-family: inter;
+    color: rgb(233, 56, 56);
+}
+
+@media only screen and (max-width: 600px) {
+    .container {
+        margin-top: 5px;
+        max-height: 60vh;
+        max-width: 95vw;
+        box-shadow: none;
+    }
+    .h1 {
+        margin-top: 0;
+        margin-bottom: 10px;
+        font-size: 40px;
+    }
+    .createInput input{
+        height:30px;
+        font-size: 10px;
+    }
+    .inputLabel {
+        font-size: 9px;
+    }
+}

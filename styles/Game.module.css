@@ -1,0 +1,313 @@
+.topHalf {
+    position: relative;
+    margin-left:40px;
+    margin-right:40px;
+    display:flex;
+    justify-content: center;
+    width: calc(100vw - 80px);
+}
+
+.bottomHalf {
+    position: relative;
+    z-index: +2;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    align-items: center;
+    flex: 1 0;
+    width: 100%;
+}
+
+.topRight {
+    padding-top:50px;
+    padding-left:50px;
+    position: relative;
+    width:60%
+}
+
+.topLeft {
+    padding-top:70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width:40%
+}
+
+.userTix {
+    margin-top: 20px;
+    font-size: 16px;
+    color:#ffffff;
+    font-family: avenH;
+    letter-spacing: 3px;
+    background: #0e0e0e;
+    border: #272727c7 1px solid;
+    width: 200px;
+    display: inline-flex;
+    justify-content: center;
+    padding: 10px 0;
+}
+
+.quanityCont {
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    height:36px;
+    margin-top: 30px;
+    width: 200px;
+    display:flex;
+    justify-content: center;
+    color: aquamarine;
+}
+
+.increment {
+    font-family: inter;
+    font-size: 30px;
+    font-weight: lighter;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width:50%;
+    background: linear-gradient(
+        to top,
+        transparent,
+        rgb(65, 253, 191)
+      )
+      rgb(41, 78, 66);
+    color: #131212;
+}
+
+.increment:hover {
+    cursor: pointer;
+    opacity: .90;
+}
+
+.quantity {
+    cursor: default;
+    border-top: 2px solid aquamarine;
+    border-bottom: 2px solid rgb(41, 78, 66);
+    border-left: none;
+    border-right: none;
+    position: relative;
+    background-color: #0000004d;
+    height: calc(100% - 6px);
+    width: 100%;
+    color:aquamarine;
+    font-size: 20px;
+    font-family: avenL;
+    text-align: center;
+}
+
+.quantity:focus {
+    outline: none;
+}
+
+.costRender {
+    font-family: avenl;
+    color:#ffffff;
+    margin-top: 50px;
+}
+
+.buyButton {
+    width: 200px;
+    margin-top: 20px;
+    opacity: 0.9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: linear-gradient(
+        to top,
+        transparent,
+        rgb(65, 253, 191)
+      )
+      rgb(41, 78, 66);
+    height:50px;
+    border-radius: 3px;
+    text-transform: uppercase;
+    font-size: 20px;
+    letter-spacing: 3px;
+    font-family: avenH;
+    margin-bottom: 20px;
+    opacity: 1;
+}
+
+.greyedOut {
+    cursor: not-allowed;
+    width: 200px;
+    margin-top: 20px;
+    opacity: 0.9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: #aaaaaa;
+    height:50px;
+    border-radius: 3px;
+    text-transform: uppercase;
+    font-size: 20px;
+    letter-spacing: 3px;
+    font-family: avenH;
+    margin-bottom: 20px;
+    opacity: 1;
+}
+
+.buyButton:hover {
+    cursor: pointer;
+    opacity:0.85;
+}
+
+.fundraiserName {
+    line-height: 50px;
+    font-family: bungee;
+    color:rgba(127, 255, 212, 0.705);
+    font-size: 40px;
+}
+
+.statCont {
+    position: relative;
+    z-index: +2;
+    border-radius: 25px;
+    box-shadow: 0 0 50px 50px rgba(127, 255, 212, 0.041);
+    padding: 30px 50px;
+    background-color: #0e0e0e;
+    border: #272727c7 1px solid;
+    position: relative;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.key {
+    font-size: 16px;
+    font-family: avenL;
+    color:#ffffff9a;
+}
+
+.value {
+    margin-top: 10px;
+    font-size: 20px;
+    font-family: avenH;
+    color:aquamarine;
+}
+
+.gameStats {
+    position: relative;
+    z-index: +2;
+    display:flex;
+    width:100vw;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.addys {
+    font-size: 14px;
+    font-family: avenl;
+    margin: 5px 0;
+    color: #ffffff;
+    display: inline-flex;
+}
+
+.addyUrl {
+    opacity: 0.8;
+    color: rgb(98, 201, 166);
+}
+
+.addyUrl:hover {
+    cursor: pointer;
+    opacity: 1;
+}
+
+.addyDivider {
+    margin: 0 10px;
+}
+
+.userTixValue {
+    margin-left: 5px;
+    color:rgb(77, 158, 131)
+}
+
+.controlzCont {
+    height: 275px;
+    width: 250px;
+}
+
+.statsContHeader {
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    color: aquamarine;
+    font-family: inter;
+}
+
+@media only screen and (max-width: 600px) {
+    .costRender {
+        margin-top: 25px;
+    }
+    .controlzCont {
+        height: 220px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .addys {
+        margin-top: 20px;
+        font-size: 10px;
+    }
+    .userTix {
+        margin-top: 0;
+        font-size: 14px;
+    }
+    .topHalf {
+        margin:0;
+        width: 100vw;
+    }
+    .fundraiserName {
+        line-height: 30px;
+        text-align: center;
+        margin-top: 20px;
+        font-size: 24px;
+    }
+    .topLeft {
+        display:none;
+    }
+    .topRight {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding:0;
+        margin: 0;
+        width: 100vw;
+    }
+    .statCont {
+        box-shadow: none;
+        border-radius: 10px;
+        text-align: center;
+        margin: 10px 0;
+        padding:0;
+        width: 45%;
+        padding-top:10px;
+        padding-bottom:10px;
+    }
+    .key {
+        font-size: 14px;
+        font-family: avenL;
+        color:#ffffff9a;
+    }
+    
+    .value {
+        margin-top: 2px;
+        font-size: 18px;
+        font-family: avenH;
+        color:aquamarine;
+    }
+    .bottomHalf {
+        margin: 0;
+        padding:0;
+    }
+  }

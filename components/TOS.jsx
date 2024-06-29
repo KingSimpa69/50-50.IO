@@ -31,7 +31,7 @@ const TOS = ({setAcceptedTos,Cookies,alert}) => {
             You agree to indemnify and hold the Developer harmless from any claims, damages, or expenses arising from your use of the Application.</div>
 
             <div className={"tosTitle"}>5. No Warranty</div>
-            <div className={"tosAgree"}>The Application is provided "as is" and "as available," without any warranty of any kind, either express or implied, including but not limited to the implied warranties of merchantability, fitness for a particular purpose, or non-infringement. 
+            <div className={"tosAgree"}>The Application is provided &#34;as is&#34; and &#34;as available,&#34; without any warranty of any kind, either express or implied, including but not limited to the implied warranties of merchantability, fitness for a particular purpose, or non-infringement. 
             The Developer does not warrant that the Application will be uninterrupted, secure, or free from errors.</div>
 
             <div className={"tosTitle"}>6. Limitation of Liability</div>

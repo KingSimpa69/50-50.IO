@@ -130,7 +130,7 @@ const GameInterface = ({gameInfo,connected,address,revealBlockTimeRemaining,endB
     return(
     <div className={styles.topHalf}>
         <div className={styles.topLeft}>
-            <Image src={"/images/roll.png"} height={273} width={300} />
+            <Image alt={"toiletPaperTickets"} src={"/images/roll.png"} height={273} width={300} />
         </div>
         <div className={styles.topRight}>
             <div className={styles.fundraiserName}>{gameInfo[0]} FUNDRAISER</div>

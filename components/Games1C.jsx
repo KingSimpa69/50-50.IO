@@ -5,13 +5,12 @@ import ABI from "@/functions/ABI.json";
 import styles from "@/styles/Index.module.css";
 import Link from "next/link";
 
-const Games = () => {
-
+const Games1C = () => {
     const [gameRefreshing, setGameRefreshing] = useState(false);
     const [activeGames, setActiveGames] = useState({ ids: [], names: [] });
     const [currentPage, setCurrentPage] = useState(0);
-    const [totalPages, setTotalPages] = useState(0)
-    const gamesPerPage = 10;
+    const [totalPages, setTotalPages] = useState(0);
+    const gamesPerPage = 5; // Adjust the number of games per page to 5 since there are 6 pages for 30 results
   
     const getGames = async () => {
       try {
@@ -41,7 +40,7 @@ const Games = () => {
     const handlePageChange = (direction) => {
       setCurrentPage((prev) => {
         const newPage = prev + direction;
-        return newPage >= 0 && newPage < Math.ceil(activeGames.ids.length / gamesPerPage) ? newPage : prev;
+        return newPage >= 0 && newPage < totalPages ? newPage : prev;
       });
     };
   
@@ -68,24 +67,15 @@ const Games = () => {
             <div className="loader"></div>
           </div>
         )}
-        <div className={styles.gamesCont}>
-          <div className={styles.gamesCol}>
-            {currentGames.ids.slice(0, 5).map((id, index) => (
-            <Link key={parseInt(id)*parseInt(index)} href={`/${id}`}>
+        <div className={styles.gamesCol1C}>
+          {currentGames.ids.map((id, index) => (
+            <Link key={id} href={`/${id}`}>
                 <div className={styles.gameItemTitle}>{currentGames.names[index]} Fundraiser</div>
             </Link>
-            ))}
-          </div>
-          <div className={styles.gamesCol}>
-            {currentGames.ids.slice(5, 10).map((id, index) => (
-            <Link key={parseInt(id)*parseInt(index)} href={`/${id}`}>
-                <div className={styles.gameItemTitle}>{currentGames.names[index + 5]} Fundraiser</div>
-            </Link>
-            ))}
-          </div>
+          ))}
         </div>
       </div>
     )
 }
 
-export default Games
+export default Games1C;

@@ -15,7 +15,8 @@ const Games = () => {
   
     const getGames = async () => {
       try {
-        const publicProvider = new JsonRpcProvider(config.publicRpc);
+        const baseUrl = typeof window !== 'undefined' ? window.location.origin : '';
+        const publicProvider = new JsonRpcProvider(`${baseUrl}/api/rpc`);
         const gameMaster = new Contract(config.gameMaster, ABI.TheGameMaster, publicProvider);
         const activeGamez = await gameMaster.getActiveGames();
         let games = { ids: [...activeGamez[0]], names: [...activeGamez[1]] };
@@ -71,14 +72,14 @@ const Games = () => {
         <div className={styles.gamesCont}>
           <div className={styles.gamesCol}>
             {currentGames.ids.slice(0, 5).map((id, index) => (
-            <Link key={parseInt(id)*parseInt(index)} href={`/${id}`}>
+            <Link key={currentGames.names[index]} href={`/${id}`}>
                 <div className={styles.gameItemTitle}>{currentGames.names[index]} Fundraiser</div>
             </Link>
             ))}
           </div>
           <div className={styles.gamesCol}>
             {currentGames.ids.slice(5, 10).map((id, index) => (
-            <Link key={parseInt(id)*parseInt(index)} href={`/${id}`}>
+            <Link key={currentGames.names[index]} href={`/${id}`}>
                 <div className={styles.gameItemTitle}>{currentGames.names[index + 5]} Fundraiser</div>
             </Link>
             ))}

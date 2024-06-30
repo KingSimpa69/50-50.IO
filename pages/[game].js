@@ -33,8 +33,9 @@ const Game = ({alert}) => {
     const [winner,setWinner] = useState("")
 
     const validateGame = async(gameId) => {
-        try{
-            const publicProvider = new JsonRpcProvider(config.publicRpc);
+        try {
+            const baseUrl = typeof window !== 'undefined' ? window.location.origin : '';
+            const publicProvider = new JsonRpcProvider(`${baseUrl}/api/rpc`);
             const gameMaster = new Contract(config.gameMaster, ABI.TheGameMaster, publicProvider)
             const id2Addy = await gameMaster.gameIdToAddress(gameId)
             if(id2Addy === "0x0000000000000000000000000000000000000000"){
@@ -48,8 +49,9 @@ const Game = ({alert}) => {
     }
 
     const getGameInfo = async (addy) => {
-        try{
-            const publicProvider = new JsonRpcProvider(config.publicRpc);
+        try {
+            const baseUrl = typeof window !== 'undefined' ? window.location.origin : '';
+            const publicProvider = new JsonRpcProvider(`${baseUrl}/api/rpc`);
             const game = new Contract(addy, ABI.FiftyFifty, publicProvider)
             const info = await game.getRaffleInfo()
             const winner = await game.winner()
@@ -120,7 +122,8 @@ const Game = ({alert}) => {
                         alert("info","Couldn't find blockhash, future block updated")
                     } else if (event.fragment.name === "WinnerDrawn") {
                         await new Promise(resolve => setTimeout(resolve, 500));
-                        setWinner(gameInfo[6])
+                        console.log(event.log.args[0])
+                        setWinner(event.log.args[0])
                         alert("success","Winning ticket pulled")
                     }
                 } catch (e) {
@@ -130,7 +133,8 @@ const Game = ({alert}) => {
                 }
             };
             setListenerMounted(true);
-            const publicProvider = new JsonRpcProvider(config.publicRpc, undefined, { polling: true });
+            const baseUrl = typeof window !== 'undefined' ? window.location.origin : '';
+            const publicProvider = new JsonRpcProvider(`${baseUrl}/api/rpc`);
             const game = new Contract(gameInfo[6], ABI.FiftyFifty, publicProvider);
             game.on("*", eventFound);
             return () => {

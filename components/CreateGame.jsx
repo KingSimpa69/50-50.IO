@@ -93,13 +93,19 @@ const CreateGame = ({alert}) => {
         try{
         const provider = new BrowserProvider(walletProvider)
         const signer = await provider.getSigner();
+        const balance = await provider.getBalance(signer.address);
         const gameMaster = new Contract(config.gameMaster, ABI.TheGameMaster, signer)
         const launchPrice = await gameMaster.launchPrice()
+        if (balance < launchPrice) {
+            alert("error","Insufficent funds")
+            return
+        } 
         const tx = await gameMaster.create(inputs[4],inputs[0],inputs[2]*60/2,(inputs[3]*60)/2,parseUnits(inputs[1].toString()),{value:launchPrice})
         setTxHash(await tx.hash)
         setLoadingStatus("txLoading")
         const receipt = await tx.wait()
-        setGameID(parseInt(receipt.logs[0].args[0]))
+        setGameID(parseInt(receipt.logs[1].args[0]))
+        //console.log(receipt.logs)
         setLoadingStatus("gameCreated")
         } catch (e) {
             setLoadingStatus("none")

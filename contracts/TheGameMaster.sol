@@ -9,7 +9,7 @@ interface IFiftyFiftyRaffle {
 
 /// @title The Game Master for 50/50 Raffle Games
 /// @dev This contract manages creation and status updates for multiple 50/50 raffle games
-contract TheGameMaster is ReentrancyGuard {
+contract TheGameMaster {
     uint256 public launchPrice = 500000000000000;
     uint256[] private active;  
     mapping(address => bool) private game; 
@@ -29,9 +29,10 @@ contract TheGameMaster is ReentrancyGuard {
     /// @param _ticketPrice Price per ticket
     /// @return gameId The unique ID of the newly created game
     /// @dev Emits the GameCreated event on successful creation
-    function create(address _fundraiserWallet, string memory _name, uint256 _blocksFromDeploy, uint256 _winnerSuspense, uint256 _ticketPrice) public payable nonReentrant returns (uint256 gameId) {
+    function create(address _fundraiserWallet, string memory _name, uint256 _blocksFromDeploy, uint256 _winnerSuspense, uint256 _ticketPrice) public payable returns (uint256 gameId) {
         require(msg.value >= launchPrice, "You must pay the game creation fee");
-        payable(gameMaster).transfer(msg.value);
+        (bool sent, ) = gameMaster.call{value: msg.value}("");
+        require(sent, "Failed to send Ether to gameMaster");
         FiftyFiftyRaffle newGame = new FiftyFiftyRaffle(_fundraiserWallet, _name, _blocksFromDeploy, _winnerSuspense, _ticketPrice);
         address gameAddress = address(newGame);
         gameId = ++currentGameId; 

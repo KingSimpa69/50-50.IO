@@ -9,7 +9,7 @@ const base = {
   name: 'Base Mainnet',
   currency: 'ETH',
   explorerUrl: 'https://basescan.org',
-  rpcUrl: 'https://mainnet.base.org'
+  rpcUrl: 'https://rpc.basedfellas.io'
 }
 
 const baseSepolia = {
@@ -46,7 +46,7 @@ const ethersConfig = defaultConfig({
 createWeb3Modal({
   allWallets: 'HIDE',
   ethersConfig,
-  chains: [base,baseSepolia],
+  chains: [base],
   projectId,
   enableAnalytics: true, 
   enableOnramp: true 

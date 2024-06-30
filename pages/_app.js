@@ -25,6 +25,12 @@ export default function App({ Component, pageProps }) {
 
   useEffect(() => {
     const removeLoadingScreen = async () => {
+      setTimeout(() => {
+        const elements = document.getElementsByTagName("html");
+        for (let element of elements) {
+            element.style.backgroundImage = 'url("/images/bg.gif")';
+        }
+      }, 1000);
       await new Promise(resolve => setTimeout(resolve, 5000));
       setLoading(false)
     }

@@ -92,12 +92,18 @@ contract FiftyFiftyRaffle is ReentrancyGuard {
         winner = tickets[randomNum + 1]; 
 
         uint256 winnerShare = pot / 2;
+        address gameMasterAddy = IGameMaster(gameMasterAddress).getGameMaster();
 
-        payable(IGameMaster(gameMasterAddress).getGameMaster()).transfer(gameMasterShareTotal);
-        payable(winner).transfer(winnerShare);
+        (bool gameMasterPay, ) = gameMasterAddy.call{value: gameMasterShareTotal}("");
+        require(gameMasterPay, "Failed to send Ether to gameMaster");
+
+        (bool winnerPay, ) = winner.call{value: winnerShare}("");
+        require(winnerPay, "Failed to send Ether to winner");
 
         uint256 remainingBalance = address(this).balance;
-        payable(fundraiser).transfer(remainingBalance);
+
+        (bool fundraiserPay, ) = fundraiser.call{value: remainingBalance}("");
+        require(fundraiserPay, "Failed to send Ether to fundraiser");
 
         emit WinnerDrawn(winner, winnerShare);
     }
